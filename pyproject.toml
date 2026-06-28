@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langgraph-checkpoint-azure-sql"
+version = "0.1.0"
+description = "LangGraph checkpoint saver for Azure SQL Database (and SQL Server) — benchmarked"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Sandesh Bagmare" },
+    { name = "Pawan Nala" },
+]
+keywords = ["langgraph", "azure-sql", "sql-server", "checkpoint", "llm", "agents"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Database",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "langgraph-checkpoint>=4.1.0,<5.0.0",
+    "pyodbc>=5.0",
+]
+
+[project.optional-dependencies]
+benchmarks = [
+    "langgraph>=1.0",
+    "python-dotenv>=1.0",
+]
+docs = [
+    "python-docx>=1.1",
+]
+test = [
+    "pytest>=8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/sandeshbagmare/azure-sql-langraph-checkpoint-saver"
+Repository = "https://github.com/sandeshbagmare/azure-sql-langraph-checkpoint-saver"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langgraph_checkpoint_azure_sql"]

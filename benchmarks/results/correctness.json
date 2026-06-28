@@ -1,0 +1,8 @@
+{
+  "threads": 30,
+  "invocations_per_thread": 5,
+  "total_invocations": 150,
+  "errors": [],
+  "error_count": 0,
+  "passed": true
+}

@@ -1,0 +1,68 @@
+{
+  "args": {
+    "workers": 20,
+    "ops": 200
+  },
+  "results": [
+    {
+      "pool_size": 1,
+      "workers": 20,
+      "ops": 200,
+      "errors": 0,
+      "p50": 19.53,
+      "p95": 83.66,
+      "p99": 90.32,
+      "max": 91.07,
+      "throughput_rps": 400.8,
+      "wall_s": 0.5
+    },
+    {
+      "pool_size": 5,
+      "workers": 20,
+      "ops": 200,
+      "errors": 0,
+      "p50": 8.14,
+      "p95": 61.55,
+      "p99": 68.08,
+      "max": 73.73,
+      "throughput_rps": 914.9,
+      "wall_s": 0.22
+    },
+    {
+      "pool_size": 10,
+      "workers": 20,
+      "ops": 200,
+      "errors": 0,
+      "p50": 7.95,
+      "p95": 95.58,
+      "p99": 108.43,
+      "max": 110.02,
+      "throughput_rps": 785.2,
+      "wall_s": 0.25
+    },
+    {
+      "pool_size": 20,
+      "workers": 20,
+      "ops": 200,
+      "errors": 0,
+      "p50": 6.28,
+      "p95": 113.24,
+      "p99": 126.49,
+      "max": 126.95,
+      "throughput_rps": 845.5,
+      "wall_s": 0.24
+    },
+    {
+      "pool_size": 50,
+      "workers": 20,
+      "ops": 200,
+      "errors": 0,
+      "p50": 6.62,
+      "p95": 18.79,
+      "p99": 31.06,
+      "max": 32.49,
+      "throughput_rps": 1413.8,
+      "wall_s": 0.14
+    }
+  ]
+}

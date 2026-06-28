@@ -1,0 +1,64 @@
+{
+  "args": {
+    "max_turns": 200,
+    "n": 10
+  },
+  "results": [
+    {
+      "depth": 1,
+      "n_queries": 10,
+      "get_p50": 0.88,
+      "get_p95": 4.07,
+      "list_p50": 0.93,
+      "list_p95": 2.24
+    },
+    {
+      "depth": 5,
+      "n_queries": 10,
+      "get_p50": 0.91,
+      "get_p95": 4.92,
+      "list_p50": 3.16,
+      "list_p95": 7.25
+    },
+    {
+      "depth": 10,
+      "n_queries": 10,
+      "get_p50": 0.9,
+      "get_p95": 1.19,
+      "list_p50": 6.07,
+      "list_p95": 16.22
+    },
+    {
+      "depth": 25,
+      "n_queries": 10,
+      "get_p50": 0.95,
+      "get_p95": 1.37,
+      "list_p50": 15.33,
+      "list_p95": 16.44
+    },
+    {
+      "depth": 50,
+      "n_queries": 10,
+      "get_p50": 1.79,
+      "get_p95": 75.74,
+      "list_p50": 37.22,
+      "list_p95": 50.95
+    },
+    {
+      "depth": 100,
+      "n_queries": 10,
+      "get_p50": 1.88,
+      "get_p95": 174.39,
+      "list_p50": 126.32,
+      "list_p95": 354.96
+    },
+    {
+      "depth": 200,
+      "n_queries": 10,
+      "get_p50": 1.13,
+      "get_p95": 25.59,
+      "list_p50": 125.45,
+      "list_p95": 218.22
+    }
+  ]
+}

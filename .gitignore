@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Test / cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Env / secrets
+.env
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep benchmark results JSON, ignore scratch
+benchmarks/results/_scratch/

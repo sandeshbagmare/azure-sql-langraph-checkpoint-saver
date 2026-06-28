@@ -1,0 +1,73 @@
+{
+  "args": {
+    "n": 20
+  },
+  "results": [
+    {
+      "payload_kb": 1,
+      "n": 20,
+      "put_p50": 1.52,
+      "put_p95": 83.01,
+      "put_max": 83.01,
+      "get_p50": 0.97,
+      "get_p95": 53.38,
+      "get_max": 53.38,
+      "put_rps": 174.2
+    },
+    {
+      "payload_kb": 10,
+      "n": 20,
+      "put_p50": 1.58,
+      "put_p95": 11.6,
+      "put_max": 11.6,
+      "get_p50": 1.07,
+      "get_p95": 5.88,
+      "get_max": 5.88,
+      "put_rps": 416.8
+    },
+    {
+      "payload_kb": 50,
+      "n": 20,
+      "put_p50": 1.8,
+      "put_p95": 3.61,
+      "put_max": 3.61,
+      "get_p50": 1.24,
+      "get_p95": 2.7,
+      "get_max": 2.7,
+      "put_rps": 502.3
+    },
+    {
+      "payload_kb": 100,
+      "n": 20,
+      "put_p50": 2.14,
+      "put_p95": 13.07,
+      "put_max": 13.07,
+      "get_p50": 1.63,
+      "get_p95": 7.9,
+      "get_max": 7.9,
+      "put_rps": 344.1
+    },
+    {
+      "payload_kb": 500,
+      "n": 20,
+      "put_p50": 4.73,
+      "put_p95": 11.36,
+      "put_max": 11.36,
+      "get_p50": 4.11,
+      "get_p95": 7.55,
+      "get_max": 7.55,
+      "put_rps": 192.9
+    },
+    {
+      "payload_kb": 1024,
+      "n": 20,
+      "put_p50": 11.57,
+      "put_p95": 23.35,
+      "put_max": 23.35,
+      "get_p50": 8.42,
+      "get_p95": 17.26,
+      "get_max": 17.26,
+      "put_rps": 79.5
+    }
+  ]
+}

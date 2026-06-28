@@ -1,0 +1,16 @@
+{
+  "args": {
+    "threads": 100,
+    "turns": 20
+  },
+  "seeded_checkpoints": 2000,
+  "single_thread_delete_ms": 1.58,
+  "bulk_delete_total_ms": 257.42,
+  "bulk_delete_threads": 99,
+  "bulk_delete_rows": 1980,
+  "per_thread_delete_ms": 2.6,
+  "per_1k_rows_ms": 130.01,
+  "size_kb_before": 10128,
+  "size_kb_after": 10128,
+  "retention_sql_example": "DELETE FROM [checkpoint_writes] WHERE thread_id IN (SELECT DISTINCT thread_id FROM [checkpoints] WHERE TRY_CAST(JSON_VALUE(metadata,'$.created_at') AS DATETIME2) < DATEADD(DAY,-30,GETUTCDATE()));"
+}

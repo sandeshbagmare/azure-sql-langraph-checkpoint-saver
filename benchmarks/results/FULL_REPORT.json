@@ -1,0 +1,359 @@
+{
+  "target_db": "langgraph_azure",
+  "real_azure_endpoint": false,
+  "scale": "default",
+  "config": {
+    "lat_n": 300,
+    "lat_w": 15,
+    "corr_t": 30,
+    "corr_i": 5,
+    "pay_n": 20,
+    "hist_max": 200,
+    "hist_n": 10,
+    "pool_w": 20,
+    "pool_ops": 200,
+    "prune_t": 100,
+    "prune_turns": 20,
+    "size_runs": 300
+  },
+  "suites": [
+    {
+      "suite": "latency",
+      "status": "ok",
+      "result": {
+        "sequential n=300": {
+          "n": 300,
+          "mean": 18.2,
+          "p50": 16.81,
+          "p90": 25.04,
+          "p95": 27.38,
+          "p99": 50.93,
+          "max": 78.52,
+          "throughput_rps": 54.9
+        },
+        "concurrent n=300 w=15": {
+          "n": 300,
+          "mean": 233.4,
+          "p50": 212.58,
+          "p90": 316.12,
+          "p95": 387.67,
+          "p99": 451.74,
+          "max": 485.12,
+          "throughput_rps": 63.7,
+          "errors": 0,
+          "wall_s": 4.71
+        }
+      }
+    },
+    {
+      "suite": "db_size",
+      "status": "ok",
+      "result": {
+        "args": {
+          "runs": 300
+        },
+        "before": {
+          "checkpoints": {
+            "rows": 3050,
+            "size_bytes": 7684096
+          },
+          "checkpoint_blobs": {
+            "rows": 11590,
+            "size_bytes": 11362304
+          },
+          "checkpoint_writes": {
+            "rows": 8540,
+            "size_bytes": 10305536
+          },
+          "checkpoint_migrations": {
+            "rows": 7,
+            "size_bytes": 73728
+          },
+          "_total_db": {
+            "rows": null,
+            "size_bytes": 75497472
+          }
+        },
+        "after": {
+          "checkpoints": {
+            "rows": 4550,
+            "size_bytes": 11354112
+          },
+          "checkpoint_blobs": {
+            "rows": 17290,
+            "size_bytes": 16998400
+          },
+          "checkpoint_writes": {
+            "rows": 12740,
+            "size_bytes": 15220736
+          },
+          "checkpoint_migrations": {
+            "rows": 7,
+            "size_bytes": 73728
+          },
+          "_total_db": {
+            "rows": null,
+            "size_bytes": 75497472
+          }
+        },
+        "delta": {
+          "checkpoints": {
+            "rows": 1500,
+            "size_bytes": 3670016
+          },
+          "checkpoint_blobs": {
+            "rows": 5700,
+            "size_bytes": 5636096
+          },
+          "checkpoint_writes": {
+            "rows": 4200,
+            "size_bytes": 4915200
+          },
+          "checkpoint_migrations": {
+            "rows": 0,
+            "size_bytes": 0
+          }
+        },
+        "per_invocation_bytes": 47404.4,
+        "per_checkpoint_bytes": 9480.9
+      }
+    },
+    {
+      "suite": "correctness",
+      "status": "ok",
+      "result": {
+        "threads": 30,
+        "invocations_per_thread": 5,
+        "total_invocations": 150,
+        "errors": [],
+        "error_count": 0,
+        "passed": true
+      }
+    },
+    {
+      "suite": "payload_scaling",
+      "status": "ok",
+      "result": [
+        {
+          "payload_kb": 1,
+          "n": 20,
+          "put_p50": 1.52,
+          "put_p95": 83.01,
+          "put_max": 83.01,
+          "get_p50": 0.97,
+          "get_p95": 53.38,
+          "get_max": 53.38,
+          "put_rps": 174.2
+        },
+        {
+          "payload_kb": 10,
+          "n": 20,
+          "put_p50": 1.58,
+          "put_p95": 11.6,
+          "put_max": 11.6,
+          "get_p50": 1.07,
+          "get_p95": 5.88,
+          "get_max": 5.88,
+          "put_rps": 416.8
+        },
+        {
+          "payload_kb": 50,
+          "n": 20,
+          "put_p50": 1.8,
+          "put_p95": 3.61,
+          "put_max": 3.61,
+          "get_p50": 1.24,
+          "get_p95": 2.7,
+          "get_max": 2.7,
+          "put_rps": 502.3
+        },
+        {
+          "payload_kb": 100,
+          "n": 20,
+          "put_p50": 2.14,
+          "put_p95": 13.07,
+          "put_max": 13.07,
+          "get_p50": 1.63,
+          "get_p95": 7.9,
+          "get_max": 7.9,
+          "put_rps": 344.1
+        },
+        {
+          "payload_kb": 500,
+          "n": 20,
+          "put_p50": 4.73,
+          "put_p95": 11.36,
+          "put_max": 11.36,
+          "get_p50": 4.11,
+          "get_p95": 7.55,
+          "get_max": 7.55,
+          "put_rps": 192.9
+        },
+        {
+          "payload_kb": 1024,
+          "n": 20,
+          "put_p50": 11.57,
+          "put_p95": 23.35,
+          "put_max": 23.35,
+          "get_p50": 8.42,
+          "get_p95": 17.26,
+          "get_max": 17.26,
+          "put_rps": 79.5
+        }
+      ]
+    },
+    {
+      "suite": "history_depth",
+      "status": "ok",
+      "result": [
+        {
+          "depth": 1,
+          "n_queries": 10,
+          "get_p50": 0.88,
+          "get_p95": 4.07,
+          "list_p50": 0.93,
+          "list_p95": 2.24
+        },
+        {
+          "depth": 5,
+          "n_queries": 10,
+          "get_p50": 0.91,
+          "get_p95": 4.92,
+          "list_p50": 3.16,
+          "list_p95": 7.25
+        },
+        {
+          "depth": 10,
+          "n_queries": 10,
+          "get_p50": 0.9,
+          "get_p95": 1.19,
+          "list_p50": 6.07,
+          "list_p95": 16.22
+        },
+        {
+          "depth": 25,
+          "n_queries": 10,
+          "get_p50": 0.95,
+          "get_p95": 1.37,
+          "list_p50": 15.33,
+          "list_p95": 16.44
+        },
+        {
+          "depth": 50,
+          "n_queries": 10,
+          "get_p50": 1.79,
+          "get_p95": 75.74,
+          "list_p50": 37.22,
+          "list_p95": 50.95
+        },
+        {
+          "depth": 100,
+          "n_queries": 10,
+          "get_p50": 1.88,
+          "get_p95": 174.39,
+          "list_p50": 126.32,
+          "list_p95": 354.96
+        },
+        {
+          "depth": 200,
+          "n_queries": 10,
+          "get_p50": 1.13,
+          "get_p95": 25.59,
+          "list_p50": 125.45,
+          "list_p95": 218.22
+        }
+      ]
+    },
+    {
+      "suite": "connection_pool",
+      "status": "ok",
+      "result": [
+        {
+          "pool_size": 1,
+          "workers": 20,
+          "ops": 200,
+          "errors": 0,
+          "p50": 19.53,
+          "p95": 83.66,
+          "p99": 90.32,
+          "max": 91.07,
+          "throughput_rps": 400.8,
+          "wall_s": 0.5
+        },
+        {
+          "pool_size": 5,
+          "workers": 20,
+          "ops": 200,
+          "errors": 0,
+          "p50": 8.14,
+          "p95": 61.55,
+          "p99": 68.08,
+          "max": 73.73,
+          "throughput_rps": 914.9,
+          "wall_s": 0.22
+        },
+        {
+          "pool_size": 10,
+          "workers": 20,
+          "ops": 200,
+          "errors": 0,
+          "p50": 7.95,
+          "p95": 95.58,
+          "p99": 108.43,
+          "max": 110.02,
+          "throughput_rps": 785.2,
+          "wall_s": 0.25
+        },
+        {
+          "pool_size": 20,
+          "workers": 20,
+          "ops": 200,
+          "errors": 0,
+          "p50": 6.28,
+          "p95": 113.24,
+          "p99": 126.49,
+          "max": 126.95,
+          "throughput_rps": 845.5,
+          "wall_s": 0.24
+        },
+        {
+          "pool_size": 50,
+          "workers": 20,
+          "ops": 200,
+          "errors": 0,
+          "p50": 6.62,
+          "p95": 18.79,
+          "p99": 31.06,
+          "max": 32.49,
+          "throughput_rps": 1413.8,
+          "wall_s": 0.14
+        }
+      ]
+    },
+    {
+      "suite": "pruning",
+      "status": "ok",
+      "result": {
+        "args": {
+          "threads": 100,
+          "turns": 20
+        },
+        "seeded_checkpoints": 2000,
+        "single_thread_delete_ms": 1.58,
+        "bulk_delete_total_ms": 257.42,
+        "bulk_delete_threads": 99,
+        "bulk_delete_rows": 1980,
+        "per_thread_delete_ms": 2.6,
+        "per_1k_rows_ms": 130.01,
+        "size_kb_before": 10128,
+        "size_kb_after": 10128,
+        "retention_sql_example": "DELETE FROM [checkpoint_writes] WHERE thread_id IN (SELECT DISTINCT thread_id FROM [checkpoints] WHERE TRY_CAST(JSON_VALUE(metadata,'$.created_at') AS DATETIME2) < DATEADD(DAY,-30,GETUTCDATE()));"
+      }
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0
+  }
+}
